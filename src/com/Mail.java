@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,7 +42,7 @@ public class Mail extends HttpServlet {
 			String msg =request.getParameter("msg");
 			String name =request.getParameter("name");
 			String sub =request.getParameter("sub");
-			String id =request.getParameter("id");
+			String id =request.getParameter("id"); 
 			String emails =request.getParameter("emails");
 			try
 			{
@@ -58,9 +59,8 @@ public class Mail extends HttpServlet {
 				ps.setString(4,id);
 				ps.setString(5,emails);
 				int y=ps.executeUpdate();
-				
-				
-				
+				RequestDispatcher rd= request.getRequestDispatcher("mail1.jsp");
+				rd.forward(request, response);	
 		}
 
 		catch(Exception e)

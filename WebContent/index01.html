@@ -15,6 +15,87 @@
 </head>
 
 <body>
+<script>
+function logi()
+{ 
+	alert("Hello");
+	var x = document.login.username.value;
+	var y = document.login.pass.value;
+	if (x == ""||x<3) 
+	{
+        alert("Name must be filled out");
+        return false;
+    }
+	else if(y==""||y<4||y==x)
+	{
+	alert("Password must be filled out OR Invalid password");  
+	return false;
+	}
+	else
+    	return true;
+	}
+	
+    function val() {
+    var x = document.myform.name.value;
+    var y =document.myform.password.value;
+    var z =document.myform.email.value;
+    var t =document.myform.PlacementRequired.value;
+    var atpos = z.indexOf("@");
+    var dotpos = z.lastIndexOf(".");
+    var c =document.myform.contact.value;
+    var q =document.myform.qualification.value;
+    var cg =document.myform.college.value;
+    var  a=document.myform.address.value;
+    var  tot=document.myform.TypeofTraining.value;
+    
+    if (x == ""||x<9) {
+        alert("Name must be filled out");
+        return false;
+    }
+        else if(y==""||y<6||y==x)
+        	{
+        	alert("Password must be filled out OR Invalid password");  
+        	return false;
+        	}
+        else if (atpos<1 || dotpos<atpos+2 || dotpos+2>x.length) {
+            alert("Not a valid e-mail address");
+        return false;    
+        }
+        else if(t=="")
+        	{
+        	alert("Placement field must be filled out");
+        	return false;
+        	}
+        else if(c==""||c<10||c>10)
+    	{
+    	alert("contact number must be filled out");
+    	return false;
+    	}
+        else if(q=="")
+    	{
+    	alert("qualification must be filled out");
+    	return false;
+    	}
+        else if(cg=="")
+    	{
+    	alert("college name must be filled out");
+    	return false;
+    	}
+        else if(a=="")
+    	{
+    	alert("address must be filled out");
+    	return false;
+    	}
+        else if(tot=="")
+    	{
+    	alert("Type of Training field must be filled out");
+    	return false;
+    	}
+        else
+        	return true;
+    
+}
+</script>
 
   <div id="container" :class="state">
   <div class="col-xs-10 col-xs-offset-1 col-lg-6 col-lg-offset-3 animated fadeInDown" id="form">
@@ -45,27 +126,89 @@
       enter-active-class="animated fadeIn"
       leave-active-class="animated fadeOut">
     <div v-if="state == '__signingin'" class="animate fadeIn" key="login" id="login-form">
-    <form action="LoginServlet" method="post">
-      <div class="form-group">
-        <img src="images/avatar-01" alt="" class="img-responsive center-block" width="120"/>
-      </div>
-      <div class="form-group">
-        <input type="text" name="username" class="form-control" placeholder="Username"/>
-      </div>
-      <div class="form-group">
-        <input type="password" name="pass" class="form-control" placeholder="Password"/>
-      </div>
-       <div class="form-group">
-        <input type="submit" name="visitor_button" value="Sign In as VISITOR" class="btn btn-block btn-sm btn-success"/></div>
-        <div class="btn-separator">or</div>
-        <div class="form-group">
-        <input type="submit" name="admin_button" value="Sign As ADMIN" class="btn btn-block btn-sm btn-primary"/>
-        </div>
-      </form>
-    </div>
+					<form action="LoginServlet" name="login" onsubmit="return logi()" method="post">
+						<div class="form-group">
+							<img src="images/avatar-01" alt=""
+								class="img-responsive center-block" width="120" />
+						</div>
+						<div class="form-group">
+							<input type="text" name="username" class="form-control"
+								placeholder="Username" />
+						</div>
+						<div class="form-group">
+							<input type="password" name="pass" class="form-control"
+								placeholder="Password" />
+						</div>
+						<div class="form-group">
+							<input type="submit" name="visitor_button"
+								value="Sign In as VISITOR"
+								class="btn btn-block btn-sm btn-success" />
+						</div>
+						<div class="btn-separator">or</div>
+						<div class="form-group">
+							<input type="submit" name="admin_button" value="Sign As ADMIN"
+								class="btn btn-block btn-sm btn-primary" />
+						</div>
+					</form>
+				</div>
     
+  <!--    <script>
+    function val() {
+    var x = document.myform.name.value;
+    var y =document.myform.password.value;
+    var z =document.myform.email.value;
+    var t =document.myform.country.value;
+    var atpos = z.indexOf("@");
+    var dotpos = z.lastIndexOf(".");
+    var c =document.myform.contact.value;
+    var q =document.myform.qualification.value;
+    var cg =document.myform.college.value;
+    var  a=document.myform.address.value;
+    if (x == ""||x<9) {
+        alert("Name must be filled out");
+        return false;
+    }
+        else if(y==""||y<6||y==x)
+        	{
+        	alert("Password must be filled out OR Invalid password");  
+        	return false;
+        	}
+        else if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+            alert("Not a valid e-mail address");
+        return false;    
+        }
+        else if(t=="")
+        	{
+        	alert("country must be filled out");
+        	return false;
+        	}
+        else if(c==""||c<10||c>10)
+    	{
+    	alert("contact number must be filled out");
+    	return false;
+    	}
+        else if(q=="")
+    	{
+    	alert("qualification must be filled out");
+    	return false;
+    	}
+        else if(cg=="")
+    	{
+    	alert("college name must be filled out");
+    	return false;
+    	}
+        else if(a=="")
+    	{
+    	alert("address must be filled out");
+    	return false;
+    	}
+        else
+        	return true;
+    
+}
+</script>-->
     <div v-if="state == '__registration'" class="animate fadeIn" key="register" id="register-form">
-    <form action="SignUpServlet" method="post">
+    <form action="SignUpServlet" name="myform" onsubmit="return val()"  method="post">
       <div class="form-group">
         <!-- <img src="http://orig05.deviantart.net/a8f9/f/2011/284/5/6/lion_by_skillr-d4ci222.png" alt="" class="img-responsive center-block" width="60"/> -->
       </div>
@@ -88,19 +231,17 @@
         <input type="text" name="email" class="form-control" placeholder="E-mail"/>
       </div>
 	  <div class="form-group">
-        <p>Type of Training:</p>
-        <input type="radio" name="Type of Training" value="6 months"> 6 Months
+        <p>Type of Training</p>
+        <input type="radio" name="TypeofTraining" value="6 months"> 6 Months
         
-        <input type="radio" name="Type of Training" value="6 weeks"> 6 Weeks
+        <input type="radio" name="TypeofTraining" value="6 weeks"> 6 Weeks
         
-        <input type="radio" name="Type of Training" value="regular"> Regular </div>
+        <input type="radio" name="TypeofTraining" value="regular"> Regular </div>
 		 <div class="form-group">
-        <p>Reference</p>
-        <input type="radio" name="Reference" value="6 months"> 6 Months
+        <p>Placement Required</p>
+        <input type="radio" name="PlacementRequired" value="yes"> Yes
         
-        <input type="radio" name="Reference" value="6 weeks"> 6 Weeks
-        
-        <input type="radio" name="Reference" value="regular"> Regular </div>
+        <input type="radio" name="PlacementRequired" value="no"> No</div>
   
       <div class="form-group">
         <input type="password" name="password" class="form-control" placeholder="Password"/>

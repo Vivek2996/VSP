@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Awesome sign up form </title>
+  
+  
+  
+      <link rel="stylesheet" href="css1/style.css">
+
+</head>
+
+<body>
+<script>
+function val() {
+    var x = document.myform.fullname.value;
+    var y =document.myform.pass.value;
+    var z =document.myform.email.value;
+    var t =document.myform.country.value;
+    var atpos = z.indexOf("@");
+    var dotpos = z.lastIndexOf(".");
+    if (x == ""||x<9) {
+        alert("Name must be filled out");
+        return false;
+    }
+        else if(y==""||y<6||y==x)
+        	{
+        	alert("Password must be filled out OR Invalid password");  
+        	return false;
+        	}
+        else if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+            alert("Not a valid e-mail address");
+        return false;    
+        }
+        else if(t=="")
+        	{
+        	alert("country must be filled out");
+        	return false;
+        	}
+        else
+        	return true;
+    
+}
+</script>
+  <html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css1/style.css">
+
+  <title>Sign up</title>
+</head>
+
+<body >
+  <div class="main" align="center">
+    <p class="su">Sign up</p>
+    <form class="form1" align="center" action="SignUpServlet" name="myform" onsubmit="return val()" method="post">
+      <input class="first" name="fullname" type="text" placeholder="Full Name"required autofocus/>
+      <input class="mail" name="email" type="email" placeholder="Email Address"/>
+      <input class="pass1" name="pass" type="password" placeholder="Choose Password"/>
+       <input class="country" name="country" type="text" placeholder="Country"/>
+      <input class="submit" type="submit" value="Sign up" align="center"> </form>
+  </div>
+  <div class="bottom">
+    <p class="mb" align="center"><strong>-</strong> Designed By <a href="https://www.khaledmneimneh.me" target="_blank"><span class="mb-2">Khaled Mneimneh</span></a></p>
+  </div>
+</body>
+
+</html>
+  
+  
+
+</body>
+
+</html>

@@ -15,7 +15,7 @@
   <link href="css3/responsive.css" rel="stylesheet">
 
   <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
+    <script src="js/html5vvk.js"></script>
     <script src="js/respond.min.js"></script>
   <![endif]-->
   
@@ -24,7 +24,8 @@
 </head><!--/head-->
 
 <body>
-
+<%String us=request.getParameter("username");
+System.out.println(us);%>
   <!--.preloader-->
   <div class="preloader"> <i class="fa fa-circle-o-notch fa-spin"></i></div>
   <!--/.preloader-->
@@ -66,15 +67,13 @@
               <h1><img class="img-responsive" src="images/avatar-01.jpg" align="left"alt="logo" height="250" width="125"></h1></a>
          </div>
         <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">                 
-           <li class="scroll active"><a href="home_page.jsp">Home</a></li>  
-           <li class="scroll"><a href="search.jsp">Dashboard</a></li>                
-             <li class="scroll"><a href="mail1.jsp">Notice Box</a></li>
-            <li class="scroll"><a href="viewmail.jsp">View Mail</a></li>
-            <li class="scroll"><a href="upload.jsp">Upload Data</a></li>
-            
-            <li class="scroll"><a href="place.jsp">Placement Analysis</a></li>
-            <li class="scroll"><a href="login_page.jsp">LogOut</a></li> 
+          <ul class="nav navbar-nav navbar-right">      
+           <li class="scroll"><a href="home_page.jsp?username=<%=us%>">Home</a></li>            
+           <li class="scroll"><a href="mail1.jsp?username=<%=us%>">Notice Box</a></li>
+            <li class="scroll"><a href="viewmail.jsp?username=<%=us%>">View Mail</a></li>
+            <li class="scroll"><a href="upload.jsp?username=<%=us%>">Upload Data</a></li>
+            <li class="scroll"><a href="place.jsp?username=<%=us%>">Placement Analysis</a></li>
+             <li class="scroll"><a href="index01.html">LogOut</a></li>
           </ul>
       </div>
     </div><!--/#main-nav-->

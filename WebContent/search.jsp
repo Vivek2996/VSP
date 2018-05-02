@@ -26,9 +26,9 @@
      <h2><b>Visitor's Count (Month Wise)  </b></h2> 
 	<select name="Categories">
 	<option >Select Category</option>
-	<option value="6 months">6-Months</option>
+	<option value="6 months">6 months</option>
 	<option value="regular">Regular</option>
-	<option value="6 weeks">6-Weeks</option>
+	<option value="6 weeks">6 weeks</option>
 	
 	</select>
 	<input type="submit" name="submit" value="Search"/>
@@ -58,7 +58,7 @@ search=request.getParameter("Categories");
 			
 			
 			//ps.setString(1 , search);
-			PreparedStatement ps=con.prepareStatement("Select * from registeration where TypeofTraining=?");
+			PreparedStatement ps=con.prepareStatement("Select * from registeration where Type_of_Training=?");
 	ps.setString(1, search);
 	
 	ResultSet resultSet=ps.executeQuery();

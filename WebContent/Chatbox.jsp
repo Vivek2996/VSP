@@ -8,6 +8,12 @@
 <title>Insert title here</title>
 </head>
 <jsp:include page="header.jsp" />
+<%!String us; %>
+<%us=request.getParameter("abc");
+System.out.println(us);%>
+<%if(us!=null)
+	{%>
+
 <body>
 <p><b><h1> Reply box:</h1></b></p>
 <%! String emails;
@@ -20,6 +26,8 @@ ResultSet rs ; %>
 		<input type="text" name="name" placeholder="Enter visitor name......">
 			<input type="submit" name="search" value="search"> <br>
 			</form>
+			<%} %>
+			
 		<%
 		String ss =request.getParameter("search");
 		if((ss)!=null)

@@ -55,7 +55,7 @@ public class LoginServlet extends HttpServlet {
 
 			Statement stm1=con.createStatement();//creating the statement
 		  // int x=stm1.executeUpdate("insert into `user`(`name`, `id`) values ('hima','53')");
-		    PreparedStatement ps=con.prepareStatement("select * from login where username=? and password=?");
+		    PreparedStatement ps=con.prepareStatement("select * from registeration where name=? and password=?");
 		    ps.setString(1,username);
 		    ps.setString(2,password);
 			ResultSet rs=ps.executeQuery();       //executing the query
@@ -67,7 +67,7 @@ public class LoginServlet extends HttpServlet {
 				ses.setAttribute("ID", username);
 				out.println("<h1>Hello</h1>");
 				out.println(request.getParameter("username"));
-			RequestDispatcher rd =request.getRequestDispatcher("home.html");
+			RequestDispatcher rd =request.getRequestDispatcher("home_visitor.jsp");
 			rd.forward(request,response);
 			
 				//response.getWriter().print("Valid user");

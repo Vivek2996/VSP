@@ -9,6 +9,12 @@
 <title>Upload</title>
 </head>
 <jsp:include page="header.jsp" />
+<%!String us; %>
+<%String us=request.getParameter("username");
+System.out.println(us);%>
+<%if(us!=null)
+	{%>
+
 <body bgcolor= "00CCCC">
 <div align="center" style="width=70%;">
  <div style="width=70%;float:center;">
@@ -22,7 +28,7 @@
     	 <br>
     	 
           </form>
-          
+          <%} %>
      
    </div>
         <form>

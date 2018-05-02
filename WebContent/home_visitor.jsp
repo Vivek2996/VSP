@@ -38,7 +38,7 @@ System.out.println(us);%>
         <div class="item active" style="background-image: url(images/slider/1.jpg)">
           <div class="caption">
           
-          	<h1 class="animated fadeInDownBig">ADMIN MODULE</h1>
+          	<h1 class="animated fadeInDownBig">VISITOR MODULE</h1>
             <h1 class="animated fadeInLeftBig">Welcome to <span>Btes Visitor Portal Screen</span></h1>
             <p class="animated fadeInRightBig">we are here for your help</p>
             <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Click here</a>
@@ -75,13 +75,11 @@ System.out.println(us);%>
              <li class="scroll"><a href="home_page.jsp?username=<%=us%>">Home</a></li> 
             <li class="scroll"><a href="#services">Service</a></li> 
             <li class="scroll"><a href="#about-us">About Us</a></li>                   
-             <li class="scroll"><a href="#features">DashBoard</a></li> 
-             <li class="scroll"><a href="mail1.jsp?username=<%=us%>">Notice Box</a></li>
-            <li class="scroll"><a href="viewmail.jsp?username=<%=us%>">View Mail</a></li>
-            <li class="scroll"><a href="upload.jsp?username=<%=us%>">Upload Data</a></li>
-            <li class="scroll"><a href="place.jsp?username=<%=us%>">Placement Analysis</a></li>
-             
-            <li class="scroll"><a href="index01.html">LogOut</a></li>     
+             <li class="scroll"><a href="dem.jsp?username=<%=us%>">Course details</a></li>
+            <li class="scroll"><a href="mail.jsp?username=<%=us%>">Chat BoX</a></li>
+            <li class="scroll"><a href="To.jsp?username=<%=us%>">Admission Test</a></li>
+            <li class="scroll"><a href="#contact">For Query</a></li>   
+             <li class="scroll"><a href="index01.html">LogOut</a></li>     
           </ul>
          
         </div>

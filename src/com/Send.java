@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,9 +41,13 @@ public class Send extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 		if((request.getParameter("Send"))!=null)
 		{
+		String emails =request.getParameter("emails");
 		String msg =request.getParameter("msg");
+		String from =request.getParameter("from");
+		String sub =request.getParameter("sub");
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");//Loading the driver
@@ -56,7 +61,12 @@ public class Send extends HttpServlet {
 			ps.setString(2,request.getParameter("emails"));
 			int y=ps.executeUpdate();
 			if(y==1) {
-				request.getRequestDispatcher("Chatbox.jsp").forward(request,response);
+				request.setAttribute("emails", emails);
+				request.setAttribute("msg", msg);
+				request.setAttribute("from", from);
+				request.setAttribute("sub", sub);
+				RequestDispatcher rd= request.getRequestDispatcher("mail_sender.jsp");
+				rd.forward(request, response);
 			}
 			}
 			catch(Exception e)

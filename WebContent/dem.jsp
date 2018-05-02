@@ -9,6 +9,13 @@
 </head>
 <body>
 <jsp:include page="headd.jsp" />
+<%String username;
+
+String se=request.getParameter("username");
+System.out.println(se);%>
+<%if(se!=null)
+	{%>
+
 <form action="dem.jsp">
 Select the Category  
 	<select name="Categories">
@@ -16,11 +23,11 @@ Select the Category
 	<option value="type">Type</option>
 	<option value="course">Course</option>
 	<option value="details">Details</option>
-	
 	<option value="profession">Profession</option>
 	</select>
 	<input type="submit" name="submit" value="Category"/>
 	</form>
+	 <%} %>
 	<%!String search;
 	String val;
 	private Connection connection;
@@ -101,9 +108,10 @@ search=request.getParameter("Categories");
       </tr>
       <%  }}catch (Exception e){e.printStackTrace();} %>
     </table>
-       <h1><%=request.getParameter("SubCategories")%></h1>
+       <!--  <h1><%=request.getParameter("SubCategories")%></h1>-->
   <%
     }
   %>
+ 
 </body>
 </html>

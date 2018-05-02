@@ -8,6 +8,7 @@
 
 <head>
 <jsp:include page="header.jsp" />
+
 <script type="text/javascript">
 function showAlert() 
 {

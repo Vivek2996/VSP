@@ -54,14 +54,44 @@
       </div>
       <div class="form-group">
         
-        <button class="btn btn-block btn-sm btn-primary">Sign As ADMIN</button>
+        <input type="submit" name="admin_button" value="Sign As ADMIN"class="btn btn-block btn-sm btn-primary" />
         
       </div>
       </form>
     </div>
+    <script>
+    function val() {
+    var x = document.myform.fullname.value;
+    var y =document.myform.pass.value;
+    var z =document.myform.email.value;
+    var t =document.myform.country.value;
+    var atpos = z.indexOf("@");
+    var dotpos = z.lastIndexOf(".");
+    if (x == ""||x<9) {
+        alert("Name must be filled out");
+        return false;
+    }
+        else if(y==""||y<6||y==x)
+        	{
+        	alert("Password must be filled out OR Invalid password");  
+        	return false;
+        	}
+        else if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+            alert("Not a valid e-mail address");
+        return false;    
+        }
+        else if(t=="")
+        	{
+        	alert("country must be filled out");
+        	return false;
+        	}
+        else
+        	return true;
     
+}
+</script>
     <div v-if="state == '__registration'" class="animate fadeIn" key="register" id="register-form">
-    <form action="SignUpServlet" method="post">
+    <form action="SignUpServlet" name="myform" onsubmit="return val()" method="post">
       <div class="form-group">
         <!-- <img src="http://orig05.deviantart.net/a8f9/f/2011/284/5/6/lion_by_skillr-d4ci222.png" alt="" class="img-responsive center-block" width="60"/> -->
       </div>

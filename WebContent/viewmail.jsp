@@ -8,19 +8,31 @@
 <title>View Mail History</title>
 </head>
 <jsp:include page="header.jsp" />
+<%!String us; %>
+<%us=request.getParameter("username");
+System.out.println(us);%>
+<%if(us!=null)
+	{%>
+
 <body bgcolor= "00CCCC">
 <p><b><h1> View Mail History</h1></b></p>
 
 <div style="width=50%;float:center;">
         <form align:center>
          <form action="viewmail.jsp">
+   <input type="hidden" name="abc" value="<%=us%>"/>
+   
     <input type="submit" name="show_table" value="show_table" class="button" style="height: 50px; width: 100px;background-color:#97cfc3" />
   
     </form>
+ <%} %>
  
   <% 
+  
   if(request.getParameter("show_table")!=null)
    {
+	  us=request.getParameter("abc");
+	  System.out.println(us);
    %>
    
    <div style="width=80%;float:center;">
@@ -56,7 +68,7 @@
         <td><%=resultSet.getString(3)%></td>
         <td><%=resultSet.getString(4)%></td>
         <td><%=resultSet.getString(5)%></td>
-        <td><form action="Chatbox.jsp" method="get"><input type="submit" name="reply" value="reply" class="button"/><%=resultSet.getString(6)%></form></td>
+        <td><form action="Chatbox.jsp" method="get"><input type="hidden" name="abc" value="<%=us%>"/><input type="submit" name="reply" value="reply" class="button"/><%=resultSet.getString(6)%></form></td>
       </tr>
       <%  }
        }
@@ -71,4 +83,5 @@
 </div>
 
 </body>
+
 </html>

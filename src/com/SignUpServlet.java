@@ -47,8 +47,8 @@ public class SignUpServlet extends HttpServlet {
 		String contact =request.getParameter("contact");
 		String college =request.getParameter("college");
 		String address =request.getParameter("address");
-		String tot =request.getParameter("Type of Training");
-		String ref =request.getParameter("Reference");
+		String tot =request.getParameter("TypeofTraining");
+		String ref =request.getParameter("PlacementRequired");
 		response.getWriter().print("valid user");
 		try
 		{
@@ -63,7 +63,7 @@ public class SignUpServlet extends HttpServlet {
 
 			//ResultSet rs=stm1.executeQuery("select * from user");//executing the query
 		  // int x=stm1.executeUpdate("insert into `user`(`name`, `id`) values ('hima','53')");
-			PreparedStatement ps=con.prepareStatement("INSERT INTO registeration(`name`, `contact`, `qualification`, `college`, `address`, `email`, `Type of Training`, `Reference`, `password`, `repassword`) VALUES (?,?,?,?,?,?,?,?,?,?)");
+			PreparedStatement ps=con.prepareStatement("INSERT INTO registeration(`name`, `contact`, `qualification`, `college`, `address`, `email`, `Type_of_Training`, `Placement`, `password`, `repassword`) VALUES (?,?,?,?,?,?,?,?,?,?)");
 		    ps.setString(1,name);
 			ps.setString(2,contact);
 			ps.setString(3,qualification);
@@ -83,7 +83,7 @@ public class SignUpServlet extends HttpServlet {
 				out.println("<h1>Hello</h1>");
 				out.println(request.getParameter("username"));
 			RequestDispatcher rd =request.getRequestDispatcher("home.html");
-			rd.include(request,response);
+			rd.forward(request,response);
 			response.getWriter().print("Valid");
 			// ResultSet rs=stm1.executeQuery("select * from user");
 			}

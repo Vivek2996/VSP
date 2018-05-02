@@ -9,8 +9,13 @@
 <title>Placement_Analysis</title>
 </head>
 <body>
-
 <jsp:include page="header.jsp" />
+<%!String us; %>
+<%String us=request.getParameter("username");
+System.out.println(us);%>
+<%if(us!=null)
+	{%>
+
 <section>
     <%!
       private Connection connection;
@@ -33,6 +38,7 @@
 		</select>
 	<input type="submit" name="submit" value="Go.."/>
 	</form>
+	<%} %>
 	</div>
 	
 	
@@ -53,12 +59,12 @@
 	if(search!=null)
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/demo","root","");
+			Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/data","root","");
 			//out.println("connection done");
 			
 			
 			//ps.setString(1 , search);
-			PreparedStatement ps=con.prepareStatement("Select * from registeration where PlacementAnalysis=?");
+			PreparedStatement ps=con.prepareStatement("Select * from registeration where Placement=?");
 			ps.setString(1, search);
 	
 			ResultSet resultSet=ps.executeQuery();
@@ -87,5 +93,6 @@
 	</table>
  
 </section>
+
 </body>
 </html>

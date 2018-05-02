@@ -24,7 +24,13 @@ function showAlert()
 </head>
 <body>
 <jsp:include page="header.jsp" />
-<form action="mail1.jsp">
+<%!String us; %>
+<%us=request.getParameter("username");
+System.out.println(us);%>
+<%if(us!=null)
+	{%>
+
+<form action="mail1.jsp" method="post">
 
 
 <p><b>Select the Category</b></p>  
@@ -33,6 +39,7 @@ function showAlert()
 	<option value="course">Course</option>
 	</select>
 	</form>
+	<%} %>
 	<%String search=request.getParameter("Categories");
 	
 	
@@ -142,5 +149,6 @@ function showAlert()
 		</div>
 		</form>
 		<%} %>
+		
 </body>
 </html>

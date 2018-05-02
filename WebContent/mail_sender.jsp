@@ -20,19 +20,23 @@ String user="b.18.java.01.02@gmail.com";//sender's id
 String pass="BTES123#";//sender's password
 String host = "smtp.gmail.com";
 String from = "b.18.java.01.02@gmail.com";//sender's email
-String subject = request.getParameter("sub");
-String messageText =request.getParameter("msg");
-to1 = request.getParameter("emails");//receiver's id
+String subject = request.getAttribute("sub").toString();
+String messageText =request.getAttribute("msg").toString();
+to1 = request.getAttribute("emails").toString();//receiver's id
     int j=0;
     System.out.println(to1);
-for(int i=0;i<to1.length();i++){
+    System.out.println(subject);
+    System.out.println(messageText);     
+    System.out.println(from);
+/*for(int i=0;i<to1.length();i++){
     if(to1.charAt(i)==';')
     {
         
         to=to1.substring(j,i);
         System.out.println(to);
+        
         j=i+1;
-   
+   */
 boolean sessionDebug = false;
 String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
 // Create some properties and get the default Session.
@@ -56,7 +60,7 @@ mailSession.setDebug(sessionDebug);
  
 Message msg = new MimeMessage(mailSession);
 msg.setFrom(new InternetAddress(from));
-InternetAddress[] address = {new InternetAddress(to)};
+InternetAddress[] address = {new InternetAddress(to1)};
 msg.setRecipients(Message.RecipientType.TO, address);
 msg.setSubject(subject);
 msg.setSentDate(new java.util.Date());
@@ -70,7 +74,7 @@ transport.connect(host, user, pass);
 try
 {
 transport.sendMessage(msg, msg.getAllRecipients());
-out.println("Mail was sent to " + to);
+out.println("Mail was sent to " + to1);
 out.println(" from " + from);
 out.println(" using host " + host + ".");
 }
@@ -78,10 +82,10 @@ catch(Exception e)
 {
     out.println(e);
 }
-    }
+    //}
     
-}
-response.sendRedirect("Page1.jsp");
+//}
+response.sendRedirect("Chatbox.jsp");
 %>
 
 

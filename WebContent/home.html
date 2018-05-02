@@ -28,7 +28,7 @@
   <!--.preloader-->
   <div class="preloader"> <i class="fa fa-circle-o-notch fa-spin"></i></div>
   <!--/.preloader-->
- <form action="login" method="get">
+ <form action="HomeServlet" method="get">
   <header id="home">
     <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner">
@@ -70,7 +70,7 @@
             <li class="scroll active"><a href="#home">Home</a></li>
             <li class="scroll"><a href="#services">Service</a></li> 
             <li class="scroll"><a href="#about-us">About Us</a></li>                     
-            <li class="scroll"><a href="dem.jsp">Course details</a></li>
+            <li class="scroll"><a href="dem.jsp?username='<%=username%>'">Course details</a></li>
             <li class="scroll"><a href="mail.jsp">Chat BoX</a></li>
             <li class="scroll"><a href="To.jsp">Admission Test</a></li>
             <li class="scroll"><a href="#contact">For Query</a></li>   
